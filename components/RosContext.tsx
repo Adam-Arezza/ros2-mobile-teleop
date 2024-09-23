@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 import ROSLIB, { TFClient } from "roslib/src/RosLib";
 
 export const RosContext = createContext()
-export const RosProvider = (props) => {
+export const RosProvider = (props:any) => {
     const [status, setStatus] = useState("Not Connected")
     const { ip } = props
 
@@ -22,7 +22,7 @@ export const RosProvider = (props) => {
     ros.on('close', () => {
         setStatus("Not Connected")
     })
-    ros.on('error', (err) => {
+    ros.on('error', (err:any) => {
         console.log(err)
     })
 

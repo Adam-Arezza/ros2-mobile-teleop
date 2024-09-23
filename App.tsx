@@ -1,7 +1,7 @@
 import { StyleSheet, TextInput, View, Text } from 'react-native';
 import { RosProvider } from './components/RosContext';
 import Teleop from './components/Teleop';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function App() {
   const [rosIp, setRosIp] = useState("")
