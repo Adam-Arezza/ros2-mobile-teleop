@@ -33,7 +33,6 @@ export default function App() {
           <Menu setView={setView}></Menu>
         </View>
       </RosProvider>
-
     );
   }
 }
