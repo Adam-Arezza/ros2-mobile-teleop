@@ -4,6 +4,7 @@ import Teleop from './components/Teleop';
 import Menu from './components/Menu';
 import MapView from './components/MapView';
 import CameraView from './components/CameraView';
+import TestView from './components/TestView';
 import { useState } from 'react';
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
     return (
       <RosProvider ip={rosIp}>
         <View style={styles.container}>
+        <TestView></TestView>
           <Text>Connected to: {rosIp}</Text>
             {view === "map" ? <MapView></MapView>:null}
             {view === "camera" ? <CameraView></CameraView>:null}

@@ -6,7 +6,7 @@ import { RosContext } from "./RosContext";
 type TopicSubscriberProps = {
     topic:string,
     topicType:string,
-    onMessage: (data:string) => void
+    onMessage: (data:any) => void
 }
 
 const TopicSubscriber = ({topic, topicType, onMessage}: TopicSubscriberProps) => {
@@ -20,8 +20,8 @@ const TopicSubscriber = ({topic, topicType, onMessage}: TopicSubscriberProps) =>
                 messageType: topicType
             })
 
-            subscriber.subscribe((data:string) => {
-            onMessage(data)
+            subscriber.subscribe((data:any) => {
+            onMessage(data.data)
         })
         }
     }, [ros])
