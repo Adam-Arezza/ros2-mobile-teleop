@@ -7,7 +7,7 @@ const TestView = () => {
     const [data, setData] = useState<string>('')
 
     const handleData = (data:any) => {
-        const dataString = `${data.data}`
+        const dataString = `${data}`
         setData(dataString)
     }
 

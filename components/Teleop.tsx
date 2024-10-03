@@ -6,13 +6,21 @@ import TopicPublisher from './TopicPublisher'
 
 
 type CmdVel = {
-    linear: number,
-    angular: number
+    linear: {
+         x: 0.0,
+         y: 0.0,
+         z: 0.0,
+     },
+     angular: {
+         x: 0.0,
+         y: 0.0,
+         z: 0.0
+     }
 }
 
 
 const Teleop = () => {
-    const [cmdVel, setCmdVel] = useState<CmdVel>({linear:0.0, angular:0.0})
+    const [cmdVel, setCmdVel] = useState<CmdVel>()
     const [vels, setVels] = useState<number[]>([0.0, 0.0])
 
 
@@ -33,6 +41,7 @@ const Teleop = () => {
                     }
                 }
             )
+
             setCmdVel(message)
         }
     }
@@ -44,8 +53,8 @@ const Teleop = () => {
     return (
         <View style={mainContainerStyle.mainContainer}>
             <TeleopSettings getVals={getVals}></TeleopSettings>
-            {cmdVel && Object.keys(cmdVel).length > 0? <Text>Linear: {cmdVel?.linear} m/s</Text> : null}
-            {cmdVel && Object.keys(cmdVel).length > 0? <Text>Angular: {cmdVel?.angular} m/s</Text> : null}
+            {cmdVel && Object.keys(cmdVel).length > 0? <Text>Linear: {cmdVel?.linear.x} m/s</Text> : null}
+            {cmdVel && Object.keys(cmdVel).length > 0? <Text>Angular: {cmdVel?.angular.z} m/s</Text> : null}
             <View style={inputRowStyle.inputRow}>
                 <TouchableOpacity onPress={() => createTwistMessage(vels[0],vels[1])}>
                     <Image style={controlArrowStyle.controlArrow} source={require('../assets/leftTurn.jpg')}></Image>

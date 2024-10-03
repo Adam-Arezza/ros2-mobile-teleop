@@ -9,6 +9,7 @@ type TopicSubscriberProps = {
     onMessage: (data:any) => void
 }
 
+
 const TopicSubscriber = ({topic, topicType, onMessage}: TopicSubscriberProps) => {
     const {ros}: any = useContext(RosContext)
 
@@ -17,12 +18,12 @@ const TopicSubscriber = ({topic, topicType, onMessage}: TopicSubscriberProps) =>
             const subscriber:any = new Topic({
                 ros: ros,
                 name: topic,
-                messageType: topicType
+                messageType: topicType,
+                queue_size: 10,
+                throttle_rate: 5
             })
 
-            subscriber.subscribe((data:any) => {
-            onMessage(data.data)
-        })
+            subscriber.subscribe(onMessage)
         }
     }, [ros])
     

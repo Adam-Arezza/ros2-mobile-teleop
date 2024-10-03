@@ -1,29 +1,40 @@
 import React, {useState} from 'react'
-import {View, Image} from 'react-native'
+import {View, Image, Text} from 'react-native'
 import TopicSubscriber from './TopicSubscriber'
-import {Buffer} from 'buffer'
 
 
 const CameraView = () => {
-    const [image, setImage] = useState<string>('')
+    const [image, setImage] = useState<any>()
 
-    const handleImage = (imageData:Uint8Array) => {
-        const binaryString = Buffer.from(imageData).toString('base64')       
-        const imageConverted = `data:image/jpeg;base64,${binaryString}`
-        console.log(`image data: ${imageConverted}`)
-        setImage(imageConverted)
+    const handleImage = (imageData:any) => {
+        try{
+            const imageConverted = `data:image/jpeg;base64,${imageData.data}`
+            setImage(imageConverted)
+        }
+        catch(err){console.log(`There was an error when handling the data: ${err}`)}
     }
 
 return (
+//need to figure out a way to make the image not flicker when the src changes
+//cache?
+//fastimage?
     <View>
-    {image ? 
+        <Text>Camera View</Text>
+    {image? 
+    <View>
        <Image
             source={{uri:image}}
             style={{width:300, height: 200}}
-            resizeMode='contain'/>: null}
+            resizeMode='contain'
+            fadeDuration={0}
+            defaultSource={{uri:image}}
+            />
+
+    </View>: null}
+
         <TopicSubscriber 
             topic="/video_frames" 
-            topicType="sensor_msgs/Image" 
+            topicType="std_msgs/String" 
             onMessage={handleImage}>
         </TopicSubscriber>
     </View>
