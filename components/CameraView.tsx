@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import {View, Image, Text} from 'react-native'
+import {View, Text} from 'react-native'
 import TopicSubscriber from './TopicSubscriber'
-
+import {Image} from 'expo-image'
 
 const CameraView = () => {
     const [image, setImage] = useState<any>()
@@ -15,9 +15,6 @@ const CameraView = () => {
     }
 
 return (
-//need to figure out a way to make the image not flicker when the src changes
-//cache?
-//fastimage?
     <View>
         <Text>Camera View</Text>
     {image? 
@@ -25,9 +22,6 @@ return (
        <Image
             source={{uri:image}}
             style={{width:300, height: 200}}
-            resizeMode='contain'
-            fadeDuration={0}
-            defaultSource={{uri:image}}
             />
 
     </View>: null}
