@@ -19,11 +19,17 @@ const TopicSubscriber = ({topic, topicType, onMessage}: TopicSubscriberProps) =>
                 ros: ros,
                 name: topic,
                 messageType: topicType,
-                queue_size: 10,
-                throttle_rate: 5
+                //queue_size: 10,
+                //throttle_rate: 5
             })
 
             subscriber.subscribe(onMessage)
+            return () => {
+                if(subscriber){
+                    subscriber.unsubscribe()
+                    console.log("unscubscribing from" + topic)
+                }
+            }
         }
     }, [ros])
     

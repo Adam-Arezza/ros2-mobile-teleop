@@ -105,8 +105,8 @@ const Teleop = () => {
 
 const robotImageStyle = StyleSheet.create<{robotImage:ImageStyle}>({
     robotImage:{
-        width: 180,
-        height: 180
+        width: 120,
+        height: 120
     }
 })
 
@@ -129,8 +129,8 @@ const inputRowStyle = StyleSheet.create<{inputRow: ViewStyle}>({
 
 const controlArrowStyle = StyleSheet.create<{controlArrow: ImageStyle}>({
     controlArrow:{
-        height: 75,
-        width: 75,
+        height: 50,
+        width: 50,
         margin: 5
     }
 
