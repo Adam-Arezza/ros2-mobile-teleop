@@ -28,7 +28,6 @@ export default function App() {
     return (
       <RosProvider ip={rosIp}>
         <View style={styles.container}>
-        <TestView></TestView>
           <Text>Connected to: {rosIp}</Text>
             {view === "map" ? <MapView></MapView>:null}
             {view === "camera" ? <CameraView></CameraView>:null}
