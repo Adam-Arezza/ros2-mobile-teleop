@@ -29,9 +29,9 @@ const TeleopSettings = ({getVals}:TeleopSettingsProps) => {
 
 const inputStyle = StyleSheet.create<{velocityInput: ViewStyle}>({
     velocityInput:{
-        height: 30,
+        height: 40,
         borderWidth: 2,
-        margin: 3
+        margin: 2
     }
 })
 

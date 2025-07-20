@@ -123,14 +123,15 @@ const inputRowStyle = StyleSheet.create<{inputRow: ViewStyle}>({
     inputRow:{
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        height:80
     }
 })
 
 const controlArrowStyle = StyleSheet.create<{controlArrow: ImageStyle}>({
     controlArrow:{
-        height: 50,
-        width: 50,
+        height: 45,
+        width: 45,
         margin: 5
     }
 

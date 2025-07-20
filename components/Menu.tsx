@@ -26,7 +26,7 @@ const viewButtons = StyleSheet.create({
         flexDirection: 'row', 
         width: '100%',
         position: 'absolute',
-        bottom: 0
+        bottom: 35
     },
     buttons:{
         backgroundColor: 'black',
